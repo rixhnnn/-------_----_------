@@ -95,7 +95,7 @@
 
         section {
             position: relative;
-            padding: 60px 0;
+            padding: 15px 0;
             z-index: 1;
         }
 
@@ -106,7 +106,7 @@
             padding: 40px 25px;
             -webkit-box-shadow: var(--shadow);
                     box-shadow: var(--shadow);
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -715,7 +715,6 @@
         .rsvp-section {
             background: var(--gray-bg); /* Темный фон для контраста */
             color: white;
-            padding-bottom: 80px;
         }
         
         .rsvp-section h2 {
@@ -1408,4 +1407,56 @@ body, html {
     max-width: 100%;
     overflow-x: hidden;
     position: relative;
+}
+
+/* Вставьте это в самый конец style.css, заменив старые исправления для таймера */
+
+@media screen and (max-width: 480px) {
+    /* 1. Запрещаем перенос и выравниваем по центру */
+    .countdown {
+        display: flex !important;
+        flex-wrap: nowrap !important; /* Самое важное: запрет переноса */
+        gap: 8px !important;          /* Небольшое расстояние между кружками */
+        justify-content: center;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    /* 2. Немного уменьшаем кружки, чтобы влезали 4 в ряд */
+    .timer-circle {
+        width: 60px !important;       /* Уменьшаем с 70px до 60px */
+        height: 60px !important;
+        min-width: 60px;              /* Запрещаем сплющивание */
+        margin: 0 !important;         /* Убираем лишние отступы */
+        padding: 0;
+    }
+
+    /* 3. Подгоняем размер шрифта */
+    .timer-circle span {
+        font-size: 1.2rem !important; /* Цифры чуть меньше */
+    }
+    
+    .timer-circle label {
+        font-size: 0.65rem !important; /* Подписи (дн, час) чуть меньше */
+    }
+
+    footer {
+        padding: 30px 10px !important; /* Уменьшаем отступы самого блока */
+    }
+
+    .wrapp-footer {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;  
+        gap: 5px !important;           
+        width: 100%;
+        justify-content: center;
+    }
+
+    .wrapp-footer p, 
+    .wrapp-footer span {
+        font-size: 18px !important;  
+        white-space: nowrap;           
+        line-height: 1;              
+    }
 }
