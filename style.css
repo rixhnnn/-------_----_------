@@ -1241,3 +1241,171 @@ footer {
                 gap: 3px;
             }
         }
+
+
+/* == FIX == */
+/* ==========================================================================
+   CSS PATCH: SAFARI & CROSS-BROWSER COMPATIBILITY FIXES
+   (Вставьте этот блок в самый конец файла, ничего не удаляя выше)
+   ========================================================================== */
+
+/* 1. Глобальный фикс для изображений в Safari (чтобы не растягивали верстку) */
+img, video, iframe, canvas, svg {
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+
+/* 2. Фикс Flexbox-контейнеров для Safari */
+/* Позволяет элементам сжиматься меньше размера контента */
+.person-card, 
+.card, 
+.dress-code-info, 
+.invite-card,
+.wrapp-input,
+.timer-circle {
+    min-width: 0; 
+    min-height: 0;
+}
+
+/* 3. Исправление свойства GAP для Couple-Wrapper (Жених и Невеста) */
+/* Мы отключаем gap (так как он не везде работает в старых версиях) и используем margin */
+.couple-wrapper {
+    gap: 0 !important; /* Перекрываем ваш gap */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 0 -15px; /* Компенсация отступов по краям */
+    width: auto;
+}
+
+.person-card {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 250px; /* flex-grow, flex-shrink, flex-basis */
+            flex: 1 1 250px;
+    margin: 15px !important; /* Безопасная замена gap */
+    width: 100%; /* Фикс для Safari */
+}
+
+/* 4. Исправление таймера */
+.countdown {
+    gap: 0 !important;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.timer-circle {
+    margin: 10px 8px; /* Отступы вместо gap */
+}
+
+/* 5. Исправление градиента на карточках */
+/* Ваш старый синтаксис -webkit-gradient с var() невалиден. Перезаписываем его. */
+.card::before {
+    background: var(--red-accent); /* Фолбек-цвет */
+    background: -webkit-linear-gradient(left, var(--black-text), var(--red-accent));
+    background: -moz-linear-gradient(left, var(--black-text), var(--red-accent));
+    background: linear-gradient(90deg, var(--black-text), var(--red-accent));
+}
+
+/* 6. Исправление формы опроса */
+.wrapp-input {
+    max-width: 100%; /* Чтобы не вылезало за экран */
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.wrapp_wishes .wrapp-input {
+    width: 100%;
+}
+
+/* 7. Адаптивность для iPhone 5s/SE и других узких экранов (320px - 375px) */
+@media screen and (max-width: 400px) {
+    /* Контейнер */
+    .container {
+        padding: 0 15px;
+        width: 100%;
+        overflow: hidden; /* Обрезаем лишнее */
+    }
+
+    /* Заголовки */
+    h1 {
+        font-size: 2.8rem;
+        word-wrap: break-word; /* Перенос длинных слов */
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Карточки жениха и невесты в колонку */
+    .couple-wrapper {
+        display: block; /* Убираем flex на мобильных для надежности */
+        margin: 0;
+    }
+
+    .person-card {
+        margin: 0 0 40px 0 !important;
+        display: block;
+        width: 100%;
+    }
+
+    /* Рамки фото */
+    .photo-frame {
+        height: auto; /* Высота по содержимому */
+        aspect-ratio: 3/4; /* Сохраняем пропорции */
+        transform: rotate(-3deg); /* Уменьшаем наклон, чтобы не вылезало */
+    }
+    
+    .photo-frame-waifu {
+        transform: rotate(3deg);
+        margin-top: 20px;
+    }
+
+    /* Таймер */
+    .timer-circle {
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+    }
+    .timer-circle span {
+        font-size: 1.2rem;
+    }
+    .timer-circle label {
+        font-size: 0.6rem;
+    }
+
+    /* Календарь */
+    .calendar-grid {
+        gap: 2px !important;
+    }
+    .cal-item {
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    /* Форма */
+    .wrapp-input {
+        height: auto;
+        min-height: 60px;
+        padding: 5px;
+        flex-wrap: wrap;
+    }
+    
+    input, select {
+        font-size: 16px; /* Фикс зума в Safari iOS при клике на инпут */
+        padding: 15px;
+    }
+    
+    .form-group label {
+        font-size: 1.2rem;
+    }
+}
+
+/* 8. Сброс переполнения для всей страницы (горизонтальный скролл) */
+body, html {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
