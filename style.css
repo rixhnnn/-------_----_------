@@ -1,0 +1,969 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&display=swap');
+
+
+        
+        :root {
+            --red-accent: #9e0e0e;      /* Благородный винный красный */
+            --red-light: #d62828;       /* Более яркий красный для акцентов */
+            --black-text: #1a1a1a;      /* Мягкий черный для текста */
+            --dark-bg: #111111;         /* Темный фон для подложки */
+            --white: #ffffff;
+            --gray-bg: #f4f4f4;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: "Cormorant Garamond", serif;;
+            background-color: var(--gray-bg);
+            color: var(--black-text);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Типографика */
+
+        a {
+            display: inline-block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        h1, h2, h3 {
+            font-family: "Cormorant Garamond", serif;
+            text-align: center;
+            color: var(--red-accent);
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Marck Script', cursive; /* Рукописный шрифт для имен */
+            font-size: 4rem;
+            color: var(--white);
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: "Cormorant Infant", serif;
+            
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .cursive {
+            font-family: 'Marck Script', cursive;
+            font-size: 2rem;
+            color: var(--red-accent);
+        }
+
+        /* Контейнер для центровки */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            position: relative;
+            padding: 60px 0;
+            z-index: 1;
+        }
+
+        /* Карточка - основа дизайна (белая плашка с тенью и скруглением) */
+        .card {
+            background: var(--white);
+            border-radius: 30px; /* Сильное скругление */
+            padding: 40px 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Декоративная линия сверху карточки */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--black-text), var(--red-accent));
+        }
+
+        /* === МУЗЫКАЛЬНАЯ КНОПКА === */
+        .music-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--red-accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* Круг */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            border: none;
+            box-shadow: 0 5px 20px rgba(158, 14, 14, 0.4);
+            font-size: 24px;
+            transition: transform 0.3s ease, background 0.3s;
+        }
+        
+        .music-toggle:active {
+            transform: scale(0.9);
+        }
+
+        .music-anim {
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(158, 14, 14, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(158, 14, 14, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(158, 14, 14, 0); }
+        }
+
+        /* === HERO SECTION === */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);  /* немного затемнить */
+    animation: fadeInVideo 1s ease-in;
+}
+
+/* .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+} */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+@keyframes fadeInVideo {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.hero h1 {
+  color: white;
+  font-size: 4rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 20px 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    color: rgba(42, 39, 39, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.date-badge {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px 30px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
+}
+
+/* === Invite === */
+
+.invite-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.invite-text-block img {
+    max-width: 70%;
+}
+
+        /* === ФОТО ЖЕНИХА И НЕВЕСТЫ === */
+        .couple-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .person-card {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .photo-frame { /* Арочная форма (верх круглый, низ квадратнее) */
+            position: relative;
+            overflow: hidden;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            height: 500px;
+            width: 100%;
+            background-color: var(--white);
+            transform: rotate(-10deg);
+        }
+
+        /* .photo-frame::before {
+            content: "Жених";
+            position: absolute;
+            top:0;
+            left: 50%;
+            transform: translate(-50%);
+            font-size: 20px;
+            color: var(--red-light);
+            color: var(--dark-bg);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        } */
+
+        .person-card:has(.andrey) {
+            order: 1;
+        }
+
+        .person-card:has(.photo-frame-waifu) {
+            order: 2;
+        }
+
+        .photo-frame::after {
+            content: "Андрей";
+            position: absolute;
+            bottom:5%;
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Marck Script', cursive;
+            font-size: 40px;
+            color: var(--dark-bg);
+        }
+
+        .photo-frame-waifu {
+            transform: rotate(11deg);
+            margin-top: 40px;
+            z-index: -1
+        }
+
+        .photo-frame-waifu::after {
+            content: "Елизавета";
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Marck Script', cursive;
+            font-size: 40px;
+            color: var(--dark-bg);
+            font-weight: 500;
+        }
+
+            /* .photo-frame-waifu::before {
+            content: "Невеста";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            font-size: 20px;
+            color: var(--black-text);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        } */
+
+
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* === КАЛЕНДАРЬ === */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .cal-item {
+            padding: 10px;
+            border-radius: 12px; /* Скругленные квадраты */
+            font-size: 1.5rem;
+            color: #777;
+        }
+
+        .cal-head {
+            font-weight: bold;
+            color: var(--black-text);
+        }
+
+        .cal-active {
+            background-color: var(--red-accent);
+            color: white;
+            box-shadow: 0 5px 15px rgba(158, 14, 14, 0.4);
+            transform: scale(1.1);
+            font-weight: bold;
+        }
+
+        /* === ТАЙМЕР === */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .timer-circle {
+            background: var(--black-text);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%; /* Полный круг */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid var(--red-accent);
+        }
+
+        .timer-circle span {
+            font-size: 1.4rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .timer-circle label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-top: 3px;
+            opacity: 0.8;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        /* === РАСПИСАНИЕ (TIMELINE) === */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            text-align: left;
+        }
+        
+        /* Линия */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 4px;
+            background: #eee;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 20px;
+
+            
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--red-accent);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--red-accent);
+
+        }
+
+        .time-badge {
+            background: var(--black-text);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            
+        }
+
+        .event-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            
+        }
+
+        .block-decor {
+            margin-top: 0 auto;
+        }
+
+        .block-decor img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transform: scaleX(-1);
+        }
+
+
+        /* === Дресс код  === */
+
+        .dress-descr {
+            margin: 0;
+        }
+
+        .dress-code-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .dress-code-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .dress-code-info img {
+            max-width: 100%;
+        }
+
+        .contacts {
+            font-size: 1.5rem;
+        }
+
+        .contacts h3 {
+            text-align: left;
+            text-transform: uppercase;
+            line-height: 50px;
+        }
+
+        address {
+            display: flex;
+            align-items: self-start;
+            justify-content: start;
+            flex-direction: column;
+        }
+
+
+        .contacts {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .img-dress {
+            display: block;
+            max-width: 40%;
+            min-height: 100px;
+            object-fit: contain;
+            transform: rotate(-20deg);
+        }
+
+        .img-wrapp {
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            object-fit: contain;
+        }
+
+        .waifu {
+            margin-top: 20px;
+        }
+        
+        
+        .img-wrapp img {
+            max-width: 40%;
+            margin: 0;
+        }
+
+        .img-wrapp-2 {
+            display: flex;
+            align-items: start;
+            justify-content: start
+        }
+
+        .img-wrapp-2 img {
+            max-width: 40%;
+            margin-bottom: 30px;
+        }
+
+        .img-wrapp-3 {
+            position: relative;
+        }
+
+        .contacts img {
+            position: absolute;
+            max-width: 45%;
+            bottom: -67px;
+            right: 0;
+        }
+
+        /* === Дресс код конец  === */
+
+        /* === ГАЛЕРЕЯ ЛОКАЦИИ === */
+        .venue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .venue-img {
+            border-radius: 20px;
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .map-wrapp iframe {
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        /* === ФОРМА ОПРОСА === */
+        .rsvp-section {
+            background: var(--gray-bg); /* Темный фон для контраста */
+            color: white;
+            padding-bottom: 80px;
+        }
+        
+        .rsvp-section h2 {
+            color: var(--red-light);
+        }
+
+        .rsvp-section span {
+            color: var(--dark-bg);
+        }
+
+        legend {
+            color: var(--dark-bg);
+            font-size: 1.3rem;
+        }
+        
+        .rsvp-card {
+            background: rgba(255, 255, 255, 0.05); /* Полупрозрачная карточка */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 40px 25px;
+        }
+
+        .wrapp-input {
+            width: 100%;
+            height: 80px;
+            background-color: var(--red-light);
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 50px;
+        }
+
+
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            color: var(--dark-bg);
+            
+        }
+
+        .form-group label {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            font-size: 1.5rem;
+        }
+
+        input,select {
+            width: 100%;
+            padding: 25px 20px;
+            border: none;
+            border-radius: 50px; /* Овальные поля ввода */
+            background: #f0f0f0;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #000000;
+            outline: none;
+            transition: box-shadow 0.3s;
+            font-size: 1.2rem;
+        }
+
+
+
+
+
+        input:focus, select:focus {
+            box-shadow: 0 0 0 3px var(--red-accent);
+            background: white;
+        }
+
+        button.submit-btn {
+            background: linear-gradient(45deg, var(--red-accent), #700000);
+            color: white;
+            border: none;
+            padding: 18px;
+            width: 100%;
+            border-radius: 50px; /* Кнопка-таблетка */
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .form-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-decor img {
+            max-width: 60%;
+            object-fit: cover;
+            margin-top: 80px;
+        }
+
+
+
+        button.submit-btn:active {
+            transform: scale(0.98);
+        }
+
+/* From Uiverse.io by waleedlh10 */ 
+fieldset, legend {
+    border: none;
+    margin-bottom: 5px;
+}
+
+.con-like {
+  --red: rgb(255, 50, 50);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  overflow: visible;  /* ВАЖНО: чтобы анимация не обрезалась */
+  font-size: 1.3rem;
+}
+
+.con-like .like {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.con-like .checkmark {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  order: 1;
+  overflow: visible;  /* ВАЖНО: чтобы анимация не обрезалась */
+}
+
+.con-like span {
+    order: 2;
+    pointer-events: none;
+}
+
+.con-like label {
+    display: none;
+}
+
+.con-like .outline,
+.con-like .filled {
+  fill: var(--red);
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.con-like .filled {
+  animation: kfr-filled 0.5s;
+  display: none;
+}
+
+.con-like .celebrate {
+  position: absolute;
+  animation: kfr-celebrate 0.5s;
+  animation-fill-mode: forwards;
+  display: none;
+  pointer-events: none;
+  z-index: 10;  /* выше других элементов */
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* центрировать */
+}
+
+.con-like .poly {
+  stroke: var(--red);
+  fill: var(--red);
+}
+
+.con-like .like:checked ~ .checkmark .filled {
+  display: block;
+}
+
+.con-like .like:checked ~ .checkmark .celebrate {
+  display: block;
+}
+
+@keyframes kfr-filled {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes kfr-celebrate {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes color {
+    0% {
+        color: var(--gray-bg);
+    }
+    
+    50% {
+        color: var(--white);
+    }
+
+    100% {
+        color: var(--gray-bg);
+    }
+}
+
+/* === wishes === */
+.wrapp_wishes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapp_wishes .wrapp-input{
+    width: 500px;
+    max-width: 100%;
+}
+
+
+.img-wishes {
+    position: relative;
+    margin-bottom: 20px;
+    
+}
+
+.img-wishes img {
+    width: 100%;
+    max-height: 550px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+
+.img-wishes::after {
+    display: block;
+    content: "Андрей & Елизавета";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: 'Marck Script', cursive;
+    font-size: 35px;
+    color: var(--dark-bg);
+    font-weight: 500;
+    transform: translate(10%, -81%);
+}
+
+.wishes-btn {
+    background: linear-gradient(45deg, var(--red-accent), #700000);
+    color: white;
+    border: none;
+    padding: 18px;
+    width: 50%;
+    border-radius: 50px; /* Кнопка-таблетка */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+
+
+
+/* ===end wishes === */
+/* === footer === */
+footer {
+    background: black; 
+    text-align: center; 
+    color: #555;
+    font-family: 'Marck Script', cursive;
+    padding: 50px;
+}
+
+.wrapp-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    
+}
+
+.wrapp-footer p, .wrapp-footer span {
+    margin: 0;
+    font-size: 35px;
+    animation: colorfoot 3s infinite linear;
+}
+
+
+
+
+/* === footer end === */
+
+@keyframes colorfoot {
+    0% {
+        color: #555;
+    }
+
+    50% {
+        color: var(--white);
+    }
+
+    100% {
+        color: #555;
+    }
+}
+
+/* From Uiverse.io by waleedlh10 */ 
+        /* === АДАПТИВНОСТЬ IPHONE 5S (320px) === */
+        @media (max-width: 375px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 1.8rem; margin-bottom: 20px;}
+            
+            .couple-wrapper { flex-direction: column; gap: 40px; }
+            .photo-frame { height: 300px; }
+            
+            .timer-circle { width: 60px; height: 60px; }
+            .timer-circle span { font-size: 1.2rem; }
+            
+            .card { padding: 30px 20px; border-radius: 20px; }
+
+            .cal-item {
+                font-size: 1rem;
+            }
+
+            .calendar-grid  {
+                gap: 3px;
+            }
+        }
+
+
+
+
+
+
+
