@@ -823,7 +823,7 @@
             font-weight: bold;
             cursor: pointer;
             -webkit-box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
-                    box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
+            box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
             -webkit-transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
             transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
             -o-transition: transform 0.2s, box-shadow 0.2s;
@@ -839,17 +839,17 @@
             display: -ms-flexbox;
             display: flex;
             -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
             -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
         }
 
         .form-decor img {
             max-width: 60%;
             -o-object-fit: cover;
-               object-fit: cover;
+            object-fit: cover;
             margin-top: 80px;
         }
 
@@ -897,24 +897,24 @@ fieldset, legend {
 }
 
 .con-like .checkmark {
-  width: 30px;
-  height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  overflow: visible;  /* ВАЖНО: чтобы анимация не обрезалась */
+    width: 30px;
+    height: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    overflow: visible;  /* ВАЖНО: чтобы анимация не обрезалась */
 }
 
 .con-like span {
@@ -939,26 +939,26 @@ fieldset, legend {
 
 .con-like .filled {
   -webkit-animation: kfr-filled 0.5s;
-          animation: kfr-filled 0.5s;
-  display: none;
+   animation: kfr-filled 0.5s;
+   display: none;
 }
 
 .con-like .celebrate {
-  position: absolute;
-  -webkit-animation: kfr-celebrate 0.5s;
-          animation: kfr-celebrate 0.5s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  display: none;
-  pointer-events: none;
-  z-index: 10;  /* выше других элементов */
-  width: 100px;
-  height: 100px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);  /* центрировать */
+    position: absolute;
+    -webkit-animation: kfr-celebrate 0.5s;
+    animation: kfr-celebrate 0.5s;
+    webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    display: none;
+    pointer-events: none;
+    z-index: 10;  /* выше других элементов */
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);  /* центрировать */
 }
 
 .con-like .poly {
@@ -978,7 +978,7 @@ fieldset, legend {
   0% {
     opacity: 0;
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 
   50% {
@@ -990,7 +990,7 @@ fieldset, legend {
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
 
@@ -998,37 +998,37 @@ fieldset, legend {
   0% {
     opacity: 0;
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 
   50% {
     opacity: 1;
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
 
 @-webkit-keyframes kfr-celebrate {
   0% {
     -webkit-transform: translate(-50%, -50%) scale(0);
-            transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0);
   }
 
   50% {
     opacity: 0.8;
     -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   100% {
     -webkit-transform: translate(-50%, -50%) scale(1.4);
-            transform: translate(-50%, -50%) scale(1.4);
+    transform: translate(-50%, -50%) scale(1.4);
     opacity: 0;
   }
 }
@@ -1036,18 +1036,18 @@ fieldset, legend {
 @keyframes kfr-celebrate {
   0% {
     -webkit-transform: translate(-50%, -50%) scale(0);
-            transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0);
   }
 
   50% {
     opacity: 0.8;
     -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   100% {
     -webkit-transform: translate(-50%, -50%) scale(1.4);
-            transform: translate(-50%, -50%) scale(1.4);
+    transform: translate(-50%, -50%) scale(1.4);
     opacity: 0;
   }
 }
@@ -1086,15 +1086,15 @@ fieldset, legend {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 .wrapp_wishes .wrapp-input{
@@ -1113,7 +1113,7 @@ fieldset, legend {
     width: 100%;
     max-height: 550px;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     margin-top: 10px;
 }
 
@@ -1125,12 +1125,12 @@ fieldset, legend {
     bottom: 0;
     left: 0;
     font-family: 'Marck Script', cursive;
-    font-size: 35px;
+    font-size: 30px;
     color: var(--dark-bg);
     font-weight: 500;
     -webkit-transform: translate(10%, -81%);
-        -ms-transform: translate(10%, -81%);
-            transform: translate(10%, -81%);
+    -ms-transform: translate(10%, -81%);
+    transform: translate(10%, -81%);
 }
 
 .wishes-btn {
@@ -1145,7 +1145,7 @@ fieldset, legend {
     font-weight: bold;
     cursor: pointer;
     -webkit-box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
-            box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
+    box-shadow: 0 10px 20px rgba(158, 14, 14, 0.3);
     -webkit-transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
     transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
     -o-transition: transform 0.2s, box-shadow 0.2s;
