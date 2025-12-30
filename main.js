@@ -215,33 +215,46 @@ if (rsvpForm) {
   });
 }
 
+// Добавь это в свой app.js
+
+// Принудительный запуск видео-фона для Safari
 document.addEventListener('DOMContentLoaded', function() {
   const video = document.getElementById('hero-video');
   
   if (video) {
-    // Попытка запустить видео
-    const playPromise = video.play();
+    // Установить базовые параметры
+    video.muted = true;
+    video.playsInline = true;
+    video.autoplay = true;
     
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          console.log('Видео запущено автоматически');
-        })
-        .catch(error => {
-          console.log('Автоплей заблокирован, попытка повторного запуска:', error);
-          
-          // Запуск при первом взаимодействии пользователя
-          document.body.addEventListener('click', function() {
-            video.play();
-          }, { once: true });
-          
-          document.body.addEventListener('touchstart', function() {
-            video.play();
-          }, { once: true });
-        });
-    }
-    
-    // Дополнительная гарантия для iOS
+    // Загрузить видео
     video.load();
+    
+    // Попытка запустить
+    setTimeout(() => {
+      const playPromise = video.play();
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('✓ Видео-фон запущен');
+          })
+          .catch(error => {
+            console.log('Autoplay blocked, waiting for interaction');
+            
+            // Запуск при любом взаимодействии
+            const startVideo = () => {
+              video.play();
+              document.removeEventListener('click', startVideo);
+              document.removeEventListener('touchstart', startVideo);
+              document.removeEventListener('scroll', startVideo);
+            };
+            
+            document.addEventListener('click', startVideo, { once: true });
+            document.addEventListener('touchstart', startVideo, { once: true });
+            document.addEventListener('scroll', startVideo, { once: true });
+          });
+      }
+    }, 100);
   }
 });

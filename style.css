@@ -208,7 +208,13 @@
     filter: brightness(0.9);  /* немного затемнить */
     -webkit-animation: fadeInVideo 1s ease-in;
     animation: fadeInVideo 1s ease-in;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
+
+
 
 /* .hero-overlay {
   position: absolute;
