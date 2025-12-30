@@ -1124,7 +1124,7 @@ fieldset, legend {
     position: absolute;
     bottom: 0;
     left: 45%;
-    transform: translate(-40%, -32px);    
+    transform: translate(-45%, -32px);    
     font-family: 'Marck Script', cursive;
     font-size: 30px;
     color: var(--dark-bg);
