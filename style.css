@@ -1122,14 +1122,15 @@ fieldset, legend {
     display: block;
     content: "Андрей & Елизавета";
     position: absolute;
-    bottom: 20px;                       /* фиксированный отступ снизу */
-    left: 55%;
-    transform: translateX(-50%);        /* только центрирование по X */
+    bottom: 0;
+    left: 45%;
+    transform: translate(-40%, -32px);    
     font-family: 'Marck Script', cursive;
     font-size: 30px;
     color: var(--dark-bg);
     font-weight: 500;
-    white-space: nowrap;                /* текст в одну строку */
+    min-width: 80%;
+
 }
 
 .wishes-btn {
