@@ -214,3 +214,34 @@ if (rsvpForm) {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('hero-video');
+  
+  if (video) {
+    // Попытка запустить видео
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          console.log('Видео запущено автоматически');
+        })
+        .catch(error => {
+          console.log('Автоплей заблокирован, попытка повторного запуска:', error);
+          
+          // Запуск при первом взаимодействии пользователя
+          document.body.addEventListener('click', function() {
+            video.play();
+          }, { once: true });
+          
+          document.body.addEventListener('touchstart', function() {
+            video.play();
+          }, { once: true });
+        });
+    }
+    
+    // Дополнительная гарантия для iOS
+    video.load();
+  }
+});
