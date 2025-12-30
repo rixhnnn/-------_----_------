@@ -793,9 +793,6 @@
             transition: box-shadow 0.3s;
             transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
             font-size: 1.2rem;
-            -webkit-appearance: none;
-            appearance: none;
-            border: none;
         }
 
 
