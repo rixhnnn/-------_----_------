@@ -101,7 +101,7 @@ if (attendingSelect) {
 // === ОТПРАВКА ФОРМЫ В GOOGLE SHEETS ===
 
 // !!! ЗАМЕНИ ЭТОТ URL НА СВОЙ ИЗ GOOGLE APPS SCRIPT !!!
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJJO4Rjoff_eVAH8xFNu0N5f6kmLA5h0mIDSn75AlqVFMICtzaNkzyamQSHbOYARBhog/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFKATKxm0MacuLTcLsA_eTMn5pFZUptUK_bczie1KyqzSXNJexFY7XwTzBrYX9YAANnw/exec';
 
 if (rsvpForm) {
   rsvpForm.addEventListener('submit', async (e) => {
@@ -223,6 +223,8 @@ if (wishesForm) {
   wishesForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
+    console.log('🎯 Форма пожеланий отправлена');
+    
     // Создаем div для сообщений если его еще нет
     let messageDiv = wishesForm.querySelector('.form-message');
     if (!messageDiv) {  
@@ -238,9 +240,11 @@ if (wishesForm) {
     
     // Собрать данные
     const wishes = document.getElementById('wishes').value;
+    console.log('📝 Пожелание:', wishes);
     
     // Проверка на пустое поле
     if (!wishes.trim()) {
+      console.log('⚠️ Пустое поле');
       messageDiv.style.background = 'rgba(255, 152, 0, 0.1)';
       messageDiv.innerHTML = `
         <p style="color: #ff9800; font-weight: bold; margin: 0;">
@@ -267,6 +271,9 @@ if (wishesForm) {
       timestamp: new Date().toLocaleString('ru-RU')
     };
     
+    console.log('📤 Отправляем данные:', data);
+    console.log('🔗 URL:', GOOGLE_SCRIPT_URL);
+    
     try {
       // Отправка в Google Sheets (используем тот же URL)
       const response = await fetch(GOOGLE_SCRIPT_URL, {
@@ -277,6 +284,8 @@ if (wishesForm) {
         },
         body: JSON.stringify(data)
       });
+      
+      console.log('✅ Запрос отправлен (CORB - это нормально!)');
       
       // Показать успешное сообщение
       messageDiv.style.background = 'rgba(46, 125, 50, 0.1)';
@@ -300,7 +309,7 @@ if (wishesForm) {
       }, 5000);
       
     } catch (error) {
-      console.error('Ошибка отправки:', error);
+      console.error('❌ Ошибка отправки:', error);
       messageDiv.style.background = 'rgba(211, 47, 47, 0.1)';
       messageDiv.innerHTML = `
         <p style="color: red; font-weight: bold; margin: 0;">
