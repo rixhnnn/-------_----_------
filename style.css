@@ -738,7 +738,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 30px;
-            padding: 40px 25px;
+            padding: 3px 25px;
         }
 
         .wrapp-input {
@@ -1285,6 +1285,10 @@ footer {
             .img-wishes::after {
                 transform: translate(11%, -60%);
                 font-size: 25px;
+            }
+
+            button.submit-btn, button.wishes-btn {
+                font-size: 0.9rem;
             }
         }
 
