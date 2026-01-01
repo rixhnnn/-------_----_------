@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/normalize.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -25,7 +26,15 @@
     <!-- 1. HERO -->
     <header class="hero">
       <!-- Видео-фон -->
-      <video autoplay muted loop preload="auto" playshine class="hero-video" id="hero-video">
+      <video
+        autoplay
+        muted
+        loop
+        preload="auto"
+        playshine
+        class="hero-video"
+        id="hero-video"
+      >
         <source src="./video/72b2cd5dc44020ce8bf8b47e6beaff14_720w.mp4" />
       </video>
 
@@ -565,7 +574,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="wishes-section form">
       <div class="container">
         <div class="wrapp_wishes">
           <h2>Ваши пожелания</h2>
@@ -578,15 +587,17 @@
               alt="andrey_elizaveta"
             />
           </div>
-          <div class="wrapp-input">
-            <input
-              type="text"
-              name="wishes"
-              id="wishes"
-              placeholder="Любви, счастья...."
-            />
-          </div>
-          <button type="submit" class="wishes-btn">Отправить</button>
+          <form>
+            <div class="wrapp-input">
+              <input
+                type="text"
+                name="wishes"
+                id="wishes"
+                placeholder="Любви, счастья...."
+              />
+            </div>
+            <button type="submit" class="wishes-btn">Отправить</button>
+          </form>
         </div>
       </div>
     </section>

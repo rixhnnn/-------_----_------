@@ -21,10 +21,16 @@
 
         * {
             -webkit-box-sizing: border-box;
-                    box-sizing: border-box;
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        * ::after, ::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -1103,9 +1109,16 @@ fieldset, legend {
     flex-direction: column;
 }
 
-.wrapp_wishes .wrapp-input{
+.wrapp_wishes form .wrapp-input{
     width: 500px;
     max-width: 100%;
+}
+
+.wrapp_wishes form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
@@ -1139,7 +1152,7 @@ fieldset, legend {
 
 }
 
-.wishes-btn {
+ .wishes-btn {
     background: -o-linear-gradient(45deg, var(--red-accent), #700000);
     background: linear-gradient(45deg, var(--red-accent), #700000);
     color: white;
@@ -1288,7 +1301,7 @@ img, video, iframe, canvas, svg {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     margin: 0 -15px; /* Компенсация отступов по краям */
     width: auto;
 }

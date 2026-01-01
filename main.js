@@ -145,6 +145,7 @@ if (rsvpForm) {
     
     // Подготовить данные для отправки
     const data = {
+      type: 'rsvp',
       name: name,
       phone: phone,
       attending: attending,
@@ -215,9 +216,102 @@ if (rsvpForm) {
   });
 }
 
-// Добавь это в свой app.js
+// === ОТПРАВКА ПОЖЕЛАНИЙ В GOOGLE SHEETS ===
+const wishesForm = document.querySelector('.wishes-section form');
 
-// Принудительный запуск видео-фона для Safari
+if (wishesForm) {
+  wishesForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Создаем div для сообщений если его еще нет
+    let messageDiv = wishesForm.querySelector('.form-message');
+    if (!messageDiv) {  
+      messageDiv = document.createElement('div');
+      messageDiv.className = 'form-message';
+      messageDiv.style.cssText = 'margin-top: 20px; text-align: center; padding: 15px; border-radius: 10px; transition: all 0.3s;';
+      wishesForm.querySelector('.wishes-btn').insertAdjacentElement('afterend', messageDiv);
+    }
+    
+    // Показать загрузку
+    messageDiv.style.background = 'rgba(200, 200, 200, 0.2)';
+    messageDiv.innerHTML = '<p style="color: #666; font-size: 1.1rem; margin: 0;">⏳ Отправка...</p>';
+    
+    // Собрать данные
+    const wishes = document.getElementById('wishes').value;
+    
+    // Проверка на пустое поле
+    if (!wishes.trim()) {
+      messageDiv.style.background = 'rgba(255, 152, 0, 0.1)';
+      messageDiv.innerHTML = `
+        <p style="color: #ff9800; font-weight: bold; margin: 0;">
+          ⚠ Напишите пожелание
+        </p>
+      `;
+      
+      setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        setTimeout(() => {
+          messageDiv.innerHTML = '';
+          messageDiv.style.background = 'transparent';
+          messageDiv.style.opacity = '1';
+        }, 300);
+      }, 3000);
+      
+      return;
+    }
+    
+    // Подготовить данные для отправки
+    const data = {
+      type: 'wishes',
+      wishes: wishes,
+      timestamp: new Date().toLocaleString('ru-RU')
+    };
+    
+    try {
+      // Отправка в Google Sheets (используем тот же URL)
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      // Показать успешное сообщение
+      messageDiv.style.background = 'rgba(46, 125, 50, 0.1)';
+      messageDiv.innerHTML = `
+        <p style="color: var(--red-accent); font-weight: bold; font-size: 1.2rem; margin: 0;">
+          ✓ Спасибо за пожелания!
+        </p>
+      `;
+      
+      // Очистить поле
+      document.getElementById('wishes').value = '';
+      
+      // Скрыть сообщение через 5 секунд
+      setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        setTimeout(() => {
+          messageDiv.innerHTML = '';
+          messageDiv.style.background = 'transparent';
+          messageDiv.style.opacity = '1';
+        }, 300);
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Ошибка отправки:', error);
+      messageDiv.style.background = 'rgba(211, 47, 47, 0.1)';
+      messageDiv.innerHTML = `
+        <p style="color: red; font-weight: bold; margin: 0;">
+          ✗ Ошибка отправки. Попробуйте позже.
+        </p>
+      `;
+    }
+  });
+}
+
+// === ПРИНУДИТЕЛЬНЫЙ ЗАПУСК ВИДЕО-ФОНА ДЛЯ SAFARI ===
 document.addEventListener('DOMContentLoaded', function() {
   const video = document.getElementById('hero-video');
   
