@@ -730,6 +730,7 @@
         legend {
             color: var(--dark-bg);
             font-size: 1.1rem;
+            
         }
         
         .rsvp-card {
@@ -1238,12 +1239,13 @@ footer {
 /* From Uiverse.io by waleedlh10 */ 
         /* === АДАПТИВНОСТЬ IPHONE 5S (320px) === */
         
-
         
         @media (max-width: 416px) {
             .hero-content h1 {
                 font-size: 3rem;
             }
+
+            
 
             .wrapp_wishes form .wrapp-input {
                 max-width: 75%;
