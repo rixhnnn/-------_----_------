@@ -344,17 +344,7 @@
             letter-spacing: 0.5px;
         } */
 
-        .person-card:has(.andrey) {
-            -webkit-box-ordinal-group: 2;
-            -ms-flex-order: 1;
-            order: 1;
-        }
 
-        .person-card:has(.photo-frame-waifu) {
-            -webkit-box-ordinal-group: 3;
-            -ms-flex-order: 2;
-            order: 2;
-        }
 
         .photo-frame::after {
             content: "Андрей";
@@ -1123,6 +1113,8 @@ fieldset, legend {
 
 
 .img-wishes {
+    min-width: 0px;
+    min-height: 0px;
     position: relative;
     margin-bottom: 20px;
     
@@ -1143,12 +1135,12 @@ fieldset, legend {
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translate(17%, -74%);
+    transform: translate(15%, -74%);
     font-family: 'Marck Script', cursive;
     font-size: 30px;
     color: var(--dark-bg);
     font-weight: 500;
-    min-width: 80%;
+    width: 100%;
 
 }
 
@@ -1245,6 +1237,9 @@ footer {
 
 /* From Uiverse.io by waleedlh10 */ 
         /* === АДАПТИВНОСТЬ IPHONE 5S (320px) === */
+        
+
+        
         @media (max-width: 416px) {
             .hero-content h1 {
                 font-size: 3rem;
@@ -1255,13 +1250,13 @@ footer {
             }
 
             .img-wishes::after {
-                transform: translate(15%, -60%);
+                transform: translate(12%, -69%);
             }
 
             .wishes-btn {
                 margin-bottom: 15px;
-                
             }
+
 
 
             }
