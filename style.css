@@ -1249,6 +1249,14 @@ footer {
             .hero-content h1 {
                 font-size: 3rem;
             }
+
+            .wrapp_wishes form .wrapp-input {
+                max-width: 75%;
+            }
+
+            .img-wishes::after {
+                font-size: 24px;
+            }
         }
         
         
