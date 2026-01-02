@@ -1261,7 +1261,7 @@ footer {
             }
 
             .con-like span {
-                font-size: 13.4px;
+                font-size: 19.4px;
             }
 
 
@@ -1296,6 +1296,10 @@ footer {
 
             button.submit-btn, button.wishes-btn {
                 font-size: 0.9rem;
+            }
+
+            .con-like span {
+                font-size: 13.4px;
             }
         }
 
