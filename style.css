@@ -555,10 +555,10 @@
             width: 100%;
             height: 100%;
             -o-object-fit: contain;
-               object-fit: contain;
+            object-fit: contain;
             -webkit-transform: scaleX(-1);
-                -ms-transform: scaleX(-1);
-                    transform: scaleX(-1);
+            -ms-transform: scaleX(-1);
+            transform: scaleX(-1);
         }
 
 
@@ -574,15 +574,15 @@
             display: -ms-flexbox;
             display: flex;
             -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
             -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
             text-align: center;
         }
 
@@ -610,15 +610,15 @@
             display: -ms-flexbox;
             display: flex;
             -webkit-box-align: self-start;
-                -ms-flex-align: self-start;
-                    align-items: self-start;
+            -ms-flex-align: self-start;
+            align-items: self-start;
             -webkit-box-pack: start;
-                -ms-flex-pack: start;
-                    justify-content: start;
+            -ms-flex-pack: start;
+            justify-content: start;
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
         }
 
 
@@ -632,10 +632,10 @@
             max-width: 40%;
             min-height: 100px;
             -o-object-fit: contain;
-               object-fit: contain;
+            object-fit: contain;
             -webkit-transform: rotate(-20deg);
-                -ms-transform: rotate(-20deg);
-                    transform: rotate(-20deg);
+            -ms-transform: rotate(-20deg);
+            transform: rotate(-20deg);
         }
 
         .img-wrapp {
@@ -643,13 +643,13 @@
             display: -ms-flexbox;
             display: flex;
             -webkit-box-align: end;
-                -ms-flex-align: end;
-                    align-items: end;
+            -ms-flex-align: end;
+            align-items: end;
             -webkit-box-pack: end;
-                -ms-flex-pack: end;
-                    justify-content: end;
+            -ms-flex-pack: end;
+            justify-content: end;
             -o-object-fit: contain;
-               object-fit: contain;
+            object-fit: contain;
         }
 
         .waifu {
@@ -667,11 +667,11 @@
             display: -ms-flexbox;
             display: flex;
             -webkit-box-align: start;
-                -ms-flex-align: start;
-                    align-items: start;
+            -ms-flex-align: start;
+            align-items: start;
             -webkit-box-pack: start;
-                -ms-flex-pack: start;
-                    justify-content: start
+            -ms-flex-pack: start;
+            justify-content: start
         }
 
         .img-wrapp-2 img {
@@ -705,9 +705,9 @@
             height: 200px;
             width: 100%;
             -o-object-fit: cover;
-               object-fit: cover;
+            object-fit: cover;
             -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         }
 
         .map-wrapp iframe {
@@ -862,8 +862,8 @@
 
         button.submit-btn:active {
             -webkit-transform: scale(0.98);
-                -ms-transform: scale(0.98);
-                    transform: scale(0.98);
+            -ms-transform: scale(0.98);
+            transform: scale(0.98);
         }
 
 /* From Uiverse.io by waleedlh10 */ 
@@ -872,97 +872,69 @@ fieldset, legend {
     margin-bottom: 5px;
 }
 
+/* Основной контейнер */
 .con-like {
     --red: rgb(255, 50, 50);
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Отступ между сердцем и текстом */
     cursor: pointer;
-    margin-top: 10px;
-    overflow: visible;  /* ВАЖНО: чтобы анимация не обрезалась */
     font-size: 1.3rem;
+    user-select: none;
+    padding: 5px 0; /* Небольшой отступ сверху/снизу */
 }
 
+/* 1. Прячем пустой label, который есть в HTML */
+.con-like label {
+    display: none;
+}
+
+/* 2. Настраиваем ТЕКСТ (span) */
+.con-like span {
+    order: 2; /* Визуально ставим текст ПОСЛЕ иконки */
+    pointer-events: none; /* Чтобы клик проходил сквозь текст на чекбокс */
+}
+
+/* 3. Настраиваем ЧЕКБОКС (input class="like") */
 .con-like .like {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
-    z-index: 20;
+    z-index: 20; /* Лежит поверх всего, чтобы ловить клики */
     cursor: pointer;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    margin: 0;
 }
 
+/* 4. Настраиваем ИКОНКУ (div class="checkmark") */
 .con-like .checkmark {
-    width: 30px;
-    height: 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: relative;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    order: 1;
-    overflow: visible;  /* ВАЖНО: чтобы анимация не обрезалась */
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  order: 1; /* Визуально ставим иконку ПЕРЕД текстом */
 }
 
-.con-like span {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    pointer-events: none;
-}
+/* --- Дальше идет стилизация и анимация (как в первом примере) --- */
 
-.con-like label {
-    display: none;
+.con-like .outline,
+.con-like .filled,
+.con-like .celebrate {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .con-like .outline,
 .con-like .filled {
   fill: var(--red);
-  position: absolute;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-}
-
-.con-like .filled {
-  -webkit-animation: kfr-filled 0.5s;
-   animation: kfr-filled 0.5s;
-   display: none;
-}
-
-.con-like .celebrate {
-    position: absolute;
-    -webkit-animation: kfr-celebrate 0.5s;
-    animation: kfr-celebrate 0.5s;
-    animation-fill-mode: forwards;
-    display: none;
-    pointer-events: none;
-    z-index: 10;  /* выше других элементов */
-    width: 100px;
-    height: 100px;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);  /* центрировать */
 }
 
 .con-like .poly {
@@ -970,6 +942,22 @@ fieldset, legend {
   fill: var(--red);
 }
 
+/* Скрываем заливку и салют по умолчанию */
+.con-like .filled {
+  animation: kfr-filled 0.5s;
+  display: none;
+}
+
+.con-like .celebrate {
+  animation: kfr-celebrate 0.5s;
+  animation-fill-mode: forwards;
+  display: none;
+}
+
+/* ЛОГИКА АНИМАЦИИ: 
+   Когда .like нажат, ищем следующего за ним соседа .checkmark 
+   и внутри него показываем .filled и .celebrate 
+*/
 .con-like .like:checked ~ .checkmark .filled {
   display: block;
 }
@@ -978,23 +966,36 @@ fieldset, legend {
   display: block;
 }
 
-@-webkit-keyframes kfr-filled {
+/* Кейфреймы анимации */
+@keyframes kfr-filled {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0);
     transform: scale(0);
   }
 
   50% {
     opacity: 1;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   
   100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+@keyframes kfr-celebrate {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+    display: none;
   }
 }
 
@@ -1018,6 +1019,32 @@ fieldset, legend {
   }
 }
 
+
+
+
+@-webkit-keyframes kfr-filled {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+
+
+
 @-webkit-keyframes kfr-celebrate {
   0% {
     -webkit-transform: translate(-50%, -50%) scale(0);
@@ -1037,25 +1064,8 @@ fieldset, legend {
   }
 }
 
-@keyframes kfr-celebrate {
-  0% {
-    -webkit-transform: translate(-50%, -50%) scale(0);
-    transform: translate(-50%, -50%) scale(0);
-  }
 
-  50% {
-    opacity: 0.8;
-    -webkit-transform: translate(-50%, -50%) scale(1);
-    transform: translate(-50%, -50%) scale(1);
-  }
 
-  100% {
-    -webkit-transform: translate(-50%, -50%) scale(1.4);
-    transform: translate(-50%, -50%) scale(1.4);
-    opacity: 0;
-  }
-
-}
 
 @-webkit-keyframes color {
     0% {
@@ -1265,6 +1275,10 @@ footer {
                 max-width: 38%;
                 right: -22px;
                 bottom: -60px;
+            }
+
+            .con-like span {
+                font-size: 13.4px;
             }
 
 
